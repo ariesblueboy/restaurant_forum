@@ -3,9 +3,12 @@ class Admin::CategoriesController < ApplicationController
   before_action :authenticate_admin
 
   def index
-    
-    @category = Category.new
     @categories = Category.all
+    if params[:id]
+      @category = Category.find(params[:id])
+    else
+      @category = Category.new
+    end
     
   end
 
@@ -20,6 +23,19 @@ class Admin::CategoriesController < ApplicationController
       end
   end
 
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to admin_categories_path
+      flash[:notice] = "Category was successfull update"
+    else
+      @categories = Category.all
+      render :index
+    end
+    
+  end
+
+
 end
 
 
@@ -30,3 +46,4 @@ private
   params.require(:category).permit(:name)
     
   end
+
