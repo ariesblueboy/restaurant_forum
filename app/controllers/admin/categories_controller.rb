@@ -3,8 +3,10 @@ class Admin::CategoriesController < ApplicationController
   before_action :authenticate_admin
 
   def index
-    @categories = Category.all
+    
     @category = Category.new
+    @categories = Category.all
+    
   end
 
   def create
@@ -13,6 +15,7 @@ class Admin::CategoriesController < ApplicationController
         flash[:notice] = "Category was successfully created"
         redirect_to admin_categories_path
       else
+        @categories = Category.all
         render :index
       end
   end
