@@ -9,6 +9,7 @@ namespace :dev do
         address: FFaker::Address.street_address,
         description: FFaker::Lorem.paragraph,
         category: Category.all.sample)
+        
     end
     puts "create over"
     puts "#{Restaurant.count}"
