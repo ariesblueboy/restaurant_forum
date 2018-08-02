@@ -16,10 +16,12 @@
     </div>  
   
     <div class="col-md-8">
-    <div>Description: <%= @restaurant.description %></div>
+     <%= simple_format @restaurant.description %>
     </div>
 
+    <div class="clearfix"></div>
 
+    <hr>
 
   </div>
 

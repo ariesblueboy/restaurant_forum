@@ -11,15 +11,18 @@
           <p class="lable lable-default"><%= restaurant.category.name %></p>
           <p><%= truncate(restaurant.description, length: 80) %></p>
         </div>
-      </div>          
+      </div>
+
     </div>
     <% end %>
+   
     <div class="text-center">
       <%= paginate @restaurants %>
     </div>
   
-
+    
   </div>
+  
 
 </div>
 

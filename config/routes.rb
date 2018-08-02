@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :restaurants, only: [:index, :show]
+  resources :categories, only: :show
   root "restaurants#index"
 
 
